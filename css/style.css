@@ -50,6 +50,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
+@dir_chdir - /github/workspace/docs;
+
 * {
     margin: 0;
     padding: 0;
