@@ -1,0 +1,233 @@
+/*  
+
+    Linhas de cada parte da página:
+    * 24: Variáveis do CSS
+    * 38: Estrutura do Body
+
+
+    Para criar as variáveis, basta usar :root{}, e dentro dela
+    cada variável acompanha dois traços, assim: --variavel
+
+    dentro dela, podemos colocar qualquer valor, seja de cor
+    ou um atributo
+
+    vale lembrar que o root se aplica a toda documentação CSS
+
+    é uma Boa Prática criar variáveis que se repetem
+
+    "*" é um sletor no css pega todos os elementos apenas do CSS e
+    aplica um estilo que determinamos    
+
+    o "vh" é o viewport height, isso é, 100% que a imagem ocupa na 
+    tela do usuário. se ter um vh ou vw menor, também irá diminuir o 
+    tamanho da imagem para o usuário.
+
+    background-repeat: repetição da imagem
+    background-size: tamanho do fundo
+        -> O background-size:contain serve para a imagem ocupar apenas o
+           espaço da tag selecionada  
+    "em" : tamanho da fonte, relativa.
+
+    * o align items, em português significa alinhar item, quando ele 
+    está no grid e que só definimos coluna, não definimos linha, ele 
+    vai alinhar ao centro dessa coluna
+
+    * O text-align pega todos os itens inline de dentro do container inteiro.
+      O container deste exemplo é a section dispositivos, onde pega todos os
+      elementos inline e os centraliza
+
+    * A respeito do flex é necessário entender que: Pais dão ordem aos filhos...
+    - Sendo assim, no footer, para que tudo se centralize, a classe rodape, pai
+      do lista__link, rodape__lista e rodape__texto precisam que sejam organizadas
+      com text-align: center.
+    - o rodape__lista, deve ser flex, por é ele quem irá organizar e centralizar
+      as outras tags.
+    - Muitas das vezes, para mexer com flex-box, o flex container deve funcionar
+      usando X e Y, e sendo coerente...
+    - O flex só se comporta de pai para filho, desta forma, ele pode alinhar e
+      organizar todos os textos que existem em uma tag.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*Fontes usadas*/
+
+
+/* Variáveis CSS*/
+:root {
+    --branco-principal: #FFFFFF;
+    --cinza-secundario: #C0C0C0;
+    --botao-azul: #167BF7;
+    --cor-de-fundo: #00030C;
+    --fonte-principal: 'Inter';
+    --botao-azul-efeito: #3c92fa;
+}
+
+/*Estrutura do Body*/
+
+body {
+    background-color: var(--cor-de-fundo);
+    color: var(--branco-principal);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.principal {
+    background-image: url("/img/Background.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-items: center;
+    text-align: center;
+}
+
+/*Container da interface*/
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.container__titulo {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.container__caixa {
+    margin: 0 6em;
+}
+
+.container__imagem {
+    margin: 1em 0 2em 0;
+    /*topo direita baixa esquerda*/
+}
+
+.container__botao {
+    background-color: var(--botao-azul);
+    border-radius: 5px;
+    padding: 1em;
+    color: var(--branco-principal);
+    display: block;
+    text-decoration: none;
+    margin-bottom: 1em;
+    transition: 1s;
+}
+
+.container__botao:hover{
+    background-color: var(--botao-azul-efeito);
+    color: var(--cor-de-fundo);
+    transition: 1s;
+}
+
+.botao__secundario {
+    background-color: transparent;
+    border: 2px solid var(--branco-principal);
+}
+
+.container__aviso {
+    font-size: 12px;
+    color: var(--cinza-secundario);
+}
+
+/* criação da segunda seção da página Alura Flix*/
+
+
+.secundario {
+    align-items: center;
+    margin: 0 10em;
+}
+
+.secundario__imagem {
+    width: 80%;
+}
+
+.descricao__titulo {
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--branco-principal);
+    margin-bottom: 0.1em;
+}
+
+.descricao__texto {
+    color: var(--cinza-secundario);
+    opacity: 0.8;
+}
+
+/*Terceira Seção da Página Alura Flix*/
+
+.secundario__botao {
+    display: inline-block;
+    margin-top: 1em;
+}
+
+.container__descricao {
+    padding: 2em;
+}
+
+/*Última seção*/
+
+.dispositivos {
+    text-align: center;
+}
+
+.dispositivos__titulo {
+    font-size: 48px;
+}
+
+.dispositivos__lista {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 5em 0;
+}
+
+.lista__item {
+    font-size: 32px;
+}
+
+.dispositivos__titulo,
+.lista__item {
+    color: var(--branco-principal);
+}
+
+/*Rodapé da página*/
+
+.rodape {
+    text-align: center;
+    margin: 5em 3em;
+}
+
+.rodape__lista {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin-top: 1em;
+}
+
+.lista__link a {
+    text-decoration: none;
+    color: var(--branco-principal);
+    margin-left: 1em;
+    transition: 1s;
+}
+
+.lista__link a:hover {
+    color: var(--botao-azul);
+    transition: 1s;
+}
+
+.lista__link a:active {
+    color: #175fb8;
+}
+
+.rodape__texto {
+    margin: 1em 0;
+    color: var(--cinza-secundario);
+    font-size: 14px;
+}
